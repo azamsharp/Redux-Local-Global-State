@@ -3,7 +3,9 @@ import * as actionTypes from './actions'
 
 const initialState = {
   counter : 123,
-  results : []
+  results : [],
+  movies : [],
+  flowers: []
 }
 
 const reducer = (state = initialState,action) => {
@@ -37,6 +39,18 @@ const reducer = (state = initialState,action) => {
       return {
         ...state,
         results : state.results.concat(action.value)
+      }
+
+    case actionTypes.FETCH_FEATURED_MOVIE:
+      return {
+        ...state,
+        movies : state.movies.concat(action.movie)
+    }
+
+    case actionTypes.LOAD_FLOWER_LIST:
+      return {
+        ...state,
+        flowers : action.flowers 
       }
 
   }
